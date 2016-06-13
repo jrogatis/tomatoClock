@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- OU YEAAHHH ONLY USING ANGULAR-->
+<link rel="stylesheet" type="text/css" href="style.css">
+<meta charset="UTF-8">
+<script src="angular-1.5.5/angular.min.js"></script>
+<script src="angular-1.5.5/angular-route.min.js"></script>
+<script src="angular-1.5.5/angular-animate.min.js"></script>
+<script src="pomodoroClock.js"></script>
+<title>Pomodo Clock</title>
+</head>
+
+<body ng-app="appPomodoro" ng-controller="MainCtrl">
+
+<!--<div class="container" ng-controller="MainCtrl">-->
+<div class="container" >
+  <div class="main" ng-view>
+    <div class="pannel">
+      <h1>Pomodoro Clock</h1>
+      <div id="timersSet" >
+        <div id="breakTimer" class= "timerPicker">
+        <label>Work</label>
+          <button class = "btn" id="plusBreak" ng-click="addBreak(1)">+</button>
+          <input id="displayBreakTimer" class= "timerSetDisplay" type ="text" ng-readonly ="true" ng-model="breakTimer">
+          <button class = "btn" id="minusBreak" ng-click="addBreak(-1)">-</button>
+        </div>
+        <div id="workTimer" class= "timerPicker">
+        <label>Break</label>
+          <button  class = "btn" id="plusWork"  ng-click="addWork(1)">+</button>
+          <input id="displayWorkTimer"  class= "timerSetDisplay"  type ="text" ng-readonly ="true" ng-model="workTimer">
+          <button  class = "btn" id="minusWork"  ng-click="addWork(-1)">-</button>
+        </div>
+         </div>
+        <div id="timer">        
+          <button  id="timerButton"  ng-click = "StartTimer()">
+            <input id="displayTimer" type ="text" ng-readonly ="true" ng-model="timerDisplay">
+         	 <img id="tomatoImg" src="tomato2.svg" width="480" height="560" alt="tomato"/>
+          </button>
+        </div>
+     
+    </div>
+  </div>
+</div>
+</body>
+</html>
