@@ -118,6 +118,11 @@ p {
 	box-shadow: 5px 5px hsla(82,43%,42%,1.00);
 	display: block;
 }
+
+.pannel h1 {
+  color: #EEE8D5;
+  text-align: center;
+}
 	
 	
 #timersSet {
@@ -125,20 +130,27 @@ p {
 }
 .timerPicker   {
 	display: inline-block;
-	padding-right: 5%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	padding-right: 2%;
+	padding-left: 4%;
 }
 .timerSetDisplay {
 	font-family: Prometo;
-	font-size: 1.3em  !important;
+	font-size: 3em  !important;
 	background-color: transparent !important;
 	-webkit-box-shadow: transparent 0px !important;
 	box-shadow: transparent 0px !important;
-	width: 3em;
+	width: 2em;
 	border-width: 0px;
 	text-align: center;
+	color: hsla(10,88%,45%,1.00);
+}
+.labelSession   {
+	font-size: 2em;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 
@@ -153,34 +165,61 @@ p {
 	width: 30px;
 	height: 30px;
 }
-
-.pannel h1 {
-  color: #EEE8D5;
-  text-align: center;
+#timerPanel {
+	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-top: 2%;
 }
+
+#displaySession {
+	font-family: Prometo;
+	font-size: 3em  !important;
+	background-color: transparent !important;
+	-webkit-box-shadow: transparent 0px !important;
+	box-shadow: transparent 0px !important;
+	border-width: 0px;
+	text-align: center;
+	color: hsla(10,88%,45%,1.00);
+	display: inline-block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: relative;
+	left: 8%;
+}
+
 #timerButton {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	background-color: transparent;
 	border-color: transparent;
+	display: block;
+	position: relative;
+	left: auto;
+	right: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
 }
+
 
 #tomatoImg {
 	background-repeat: no-repeat;
-	margin-left: 60px;
-	margin-top: -50px;
+	width: 500px;
+	height: auto;
 }
 #displayTimer {
 	font-family: Prometo;
 	font-size: 8em  !important;
 	background-color: transparent !important;
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
-	max-width: 2em;
-	text-align: center;
-	position: absolute;
-	left: 40%;
-	top: 330px;
 	border-width: 0px;
-}
-#timer {
+	position: absolute;
+	text-align: center;
+	width: 30%;
+	left: 220px;
+	right: auto;
+	top: 250px;
 }

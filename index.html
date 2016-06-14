@@ -19,27 +19,29 @@
   <div class="main" ng-view>
     <div class="pannel">
       <h1>Pomodoro Clock</h1>
+      <!--area dos sets-->
       <div id="timersSet" >
         <div id="breakTimer" class= "timerPicker">
-        <label>Work</label>
+          <label id="break" class="labelSession">Break</label>
           <button class = "btn" id="plusBreak" ng-click="addBreak(1)">+</button>
           <input id="displayBreakTimer" class= "timerSetDisplay" type ="text" ng-readonly ="true" ng-model="breakTimer">
           <button class = "btn" id="minusBreak" ng-click="addBreak(-1)">-</button>
         </div>
         <div id="workTimer" class= "timerPicker">
-        <label>Break</label>
+          <label id = "session" class="labelSession">Session</label>
           <button  class = "btn" id="plusWork"  ng-click="addWork(1)">+</button>
           <input id="displayWorkTimer"  class= "timerSetDisplay"  type ="text" ng-readonly ="true" ng-model="workTimer">
           <button  class = "btn" id="minusWork"  ng-click="addWork(-1)">-</button>
         </div>
-         </div>
-        <div id="timer">        
-          <button  id="timerButton"  ng-click = "StartTimer()">
+      </div>
+      <!--area do botão -->
+      <div id="timerPanel">
+        <input id="displaySession" type ="text" ng-readonly ="true" ng-model="sessionDisplay">
+        <button  id="timerButton"  ng-click = "StartTimer()">   
             <input id="displayTimer" type ="text" ng-readonly ="true" ng-model="timerDisplay">
-         	 <img id="tomatoImg" src="tomato2.svg" width="480" height="560" alt="tomato"/>
-          </button>
-        </div>
-     
+            <img id="tomatoImg" src="tomato2.svg" alt="tomato"/>
+        </button>
+      </div>
     </div>
   </div>
 </div>

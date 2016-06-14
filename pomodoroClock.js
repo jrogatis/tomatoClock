@@ -6,56 +6,72 @@
 
 var app = angular.module('appPomodoro', []);
 //funcão que inicia o timer
-
-  
+ 
 app.controller('MainCtrl',  function($scope, $interval) {
 	 $scope.Timer = null;
+	var cicle = "Session";
+	//var timerStarted;
 	var init = function () {
 		$scope.breakTimer = 5;
-		$scope.workTimer = 5;
+		$scope.workTimer = 25;
 		$scope.timerDisplay = $scope.workTimer; 
 		}; //FIM DO INIT
 	
 	init();
 	
 	$scope.addBreak = function (value) {
+		if (cicle === "Break") {
+				$scope.timerDisplay += value;
+			}
 		$scope.breakTimer += value;	
 		};
 	
-	
 	$scope.addWork = function (value) {
 		$scope.workTimer += value;	
-		  $scope.timerDisplay += value;
+		if (cicle === "Session") {
+				$scope.timerDisplay += value;
+			}
 		
 		};
 	
 	 //Timer start function.
+	 var timerIsOn = false;
       $scope.StartTimer = function () {
-                //Initialize the Timer to run every 1000 milliseconds i.e. one second.
-                $scope.Timer = $interval(function () {
-                    //Display the current time.   
-					 
-					if ( $scope.timerDisplay === 0) {			
-						  $interval.cancel($scope.Timer);
-						}  else {
-							 $scope.timerDisplay = $scope.timerDisplay -1;
-						}
-                   
-                }, 3000);
+             
+					$scope.sessionDisplay = cicle;
+			
+				  if (!timerIsOn) {
+					  	timerIsOn = true;
+						$scope.Timer = $interval(function () {
+							//Display the current time.   
+							 
+							if ( $scope.timerDisplay === 0) {			
+									//
+									if (cicle === "Session"){
+										cicle = "Break";
+										$scope.timerDisplay = $scope.breakTimer;
+									
+									} else { 
+										cicle = "Session";
+										$scope.timerDisplay = $scope.workTimer;
+										
+										}	
+										
+								}  else {
+									$scope.timerDisplay = $scope.timerDisplay -1;
+								}
+						   	$scope.sessionDisplay = cicle;
+						}, 60000);
+						
+						
+				  } else {
+					   	timerIsOn = false;
+					  $interval.cancel($scope.Timer);
+					  }
             };
 
-		$scope.StopTimer = function () {
- 
-                //Set the Timer stop message.
-                $scope.Message = "Timer stopped.";
- 
-                //Cancel the Timer.
-                if (angular.isDefined($scope.Timer)) {
-                    $interval.cancel($scope.Timer);
-                }
-            }; 
-	
-	
+		
+		
  }); //FIM DO CONTROLER
   
 
